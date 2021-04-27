@@ -11,7 +11,7 @@ namespace CB.Web.Controllers
     public class TestController : BaseController
     {
         [HttpGet]
-        public IActionResult Test1()
+        public IActionResult Test()
         {
             return GetResponse();
         }
