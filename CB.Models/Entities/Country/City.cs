@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CB.Models.Entities.Car;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace CB.Models.Entities.Country
         public int CountryId { get; set; }
         [ForeignKey(nameof(CountryId))]
         public Country Country { get; set; }
+        public List<Auction> Auctions { get; set; }
+
     }
 }

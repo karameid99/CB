@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CB.Models.Entities.Car
 {
@@ -9,5 +10,6 @@ namespace CB.Models.Entities.Car
         public int? ParentId { get; set; }
         [ForeignKey(nameof(ParentId))]
         public BrandCar ParentBrand { get; set; }
+        public List<Auction> Auctions { get; set; }
     }
 }

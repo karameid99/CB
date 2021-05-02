@@ -14,6 +14,7 @@ namespace CB.Models.Entities.Client
         public int AuctionId { get; set; }
         public Auction Auction { get; set; }
         public DateTime CreatedAt { get; set; }
+
         public AuctionWatch()
         {
             CreatedAt = DateTime.Now;

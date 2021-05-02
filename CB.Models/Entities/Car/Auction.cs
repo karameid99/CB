@@ -1,5 +1,7 @@
-﻿using CB.Models.Entities.Country;
+﻿using CB.Models.Entities.Client;
+using CB.Models.Entities.Country;
 using CB.Models.Enums;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CB.Models.Entities.Car
@@ -24,6 +26,20 @@ namespace CB.Models.Entities.Car
         public string Referral { get; set; }
         public VehicleStatus VehicleStatus { get; set; }
         public float? ReservePrice { get; set; }
+        public string BodyStyle { get; set; }
+        public string Engine { get; set; }
+        public string Drivetrain { get; set; }
+        public string Transmission { get; set; }
+        public string ExteriorColor { get; set; }
+        public string InteriorColor { get; set; }
+
+        // More Details
+        public string Highlights { get; set; }
+        public string Equipment { get; set; }
+        public string KnownFlaws { get; set; }
+        public string RecentServiceHistory { get; set; }
+        public string ItemsIncluded { get; set; }
+        public string OwnershipHistory { get; set; }
         public int MakeId { get; set; }
         [ForeignKey(nameof(MakeId))]
         public BrandCar Make { get; set; }
@@ -33,5 +49,10 @@ namespace CB.Models.Entities.Car
         public int CityId { get; set; }
         [ForeignKey(nameof(CityId))]
         public City City { get; set; }
+        public List<Comment> Comment { get; set; }
+        public List<Bid> Bids { get; set; }
+        public List<AuctionLink> AuctionLinks { get; set; }
+        public List<AuctionWatch> AuctionWatchs { get; set; }
+
     }
 }

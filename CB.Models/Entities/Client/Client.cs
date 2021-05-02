@@ -1,4 +1,5 @@
 ﻿using CB.Models.Entities.Auth;
+using CB.Models.Entities.Car;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -35,7 +36,9 @@ namespace CB.Models.Entities.Client
         public bool SellerNewCommentsOnEmail { get; set; }
         public bool SellerNewBidsOnEmail { get; set; }
         #endregion
-
+        public List<Comment> Comment { get; set; }
+        public List<Bid> Bids { get; set; }
+        public List<AuctionWatch> AuctionWatches { get; set; }
 
     }
 }
