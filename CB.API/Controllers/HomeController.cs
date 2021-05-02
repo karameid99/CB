@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CB.Web.Controllers
+namespace CB.API.Controllers
 {
     public class HomeController : Controller
     {

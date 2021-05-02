@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using CB.Models.Resources;
 using System.Net;
 
-namespace CB.Web.Controllers
+namespace CB.API.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]

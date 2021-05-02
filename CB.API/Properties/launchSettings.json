@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "CB.Web": {
+    "CB.API": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchUrl": "swagger",

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 
-namespace CB.Web.Controllers
+namespace CB.API.Controllers
 {
 
     public class TestController : BaseController
