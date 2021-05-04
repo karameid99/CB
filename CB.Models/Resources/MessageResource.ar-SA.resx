@@ -117,11 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الألكتروني</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>الأسم بالكامل</value>
+  </data>
   <data name="GeneralError" xml:space="preserve">
     <value>آسف! حدث خطأ ، يرجى الاتصال بالدعم الفني</value>
   </data>
   <data name="MissingRequiredFields" xml:space="preserve">
     <value>الحقول المطلوبة مفقودة</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>رقم الهاتف</value>
   </data>
   <data name="Succses" xml:space="preserve">
     <value>العملية تمت بنجاح</value>

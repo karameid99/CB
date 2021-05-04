@@ -1,0 +1,63 @@
+﻿@model CB.Models.DTOs.Supervisor.SupervisorUpdateDto
+@{
+    ViewData["Title"] = "Update Supervisor";
+}
+@{
+    Layout = null;
+}
+
+<form asp-action="Edit" method="post" class="ajaxForm" tname="#kt_datatable" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="FullName"></label>
+                <input asp-for="FullName" placeholder="Enter full name" class="form-control form-control-solid" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="PhoneNumber"></label>
+                <input asp-for="PhoneNumber" placeholder="Enter Phone Number" class="form-control form-control-solid" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input type="email" asp-for="Email" placeholder="Enter Email" class="form-control form-control-solid" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label ></label>
+            <div class="form-group row">
+                <div class="col-9 col-form-label">
+                    <div class="checkbox-inline">
+                        <label class="checkbox checkbox-success">
+                            <input type="checkbox" asp-for="IsActive" />
+                            <span></span>
+                            Active
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+ 
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary font-weight-bold mr-2">Save</button>
+        <button type="button" data-dismiss="modal" class="btn btn-light-primary font-weight-bold">Cancel</button>
+    </div>
+</form>
+
+<script>
+    PageLoadActions();
+</script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+

@@ -29,7 +29,7 @@ namespace CB.Models.Resources {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal MessageResource() {
+        public MessageResource() {
         }
         
         /// <summary>
@@ -61,6 +61,24 @@ namespace CB.Models.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full Name.
+        /// </summary>
+        public static string FullName {
+            get {
+                return ResourceManager.GetString("FullName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sorry! an error occurred, please call technical support..
         /// </summary>
         public static string GeneralError {
@@ -68,7 +86,7 @@ namespace CB.Models.Resources {
                 return ResourceManager.GetString("GeneralError", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Missing Required Fields.
         /// </summary>
@@ -77,7 +95,16 @@ namespace CB.Models.Resources {
                 return ResourceManager.GetString("MissingRequiredFields", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone Number.
+        /// </summary>
+        public static string PhoneNumber {
+            get {
+                return ResourceManager.GetString("PhoneNumber", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Succses.
         /// </summary>

@@ -23,5 +23,10 @@ namespace CB.Models.Entities.Auth
         public int? ClientId { get; set; }
         [ForeignKey(nameof(ClientId))]
         public CB.Models.Entities.Client.Client Client { get; set; }
+        public CBUser()
+        {
+            CreatedAt = DateTime.Now;
+            UpdatedAt = DateTime.Now;
+        }
     }
 }

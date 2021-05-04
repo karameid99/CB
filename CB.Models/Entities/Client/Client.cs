@@ -14,7 +14,6 @@ namespace CB.Models.Entities.Client
     {
         [Required]
         public string OwnerId { get; set; }
-        [Key]
         public string UserName { get; set; }
         public string Image { get; set; }
         public string Bio { get; set; }

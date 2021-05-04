@@ -84,10 +84,6 @@ $("#Confirm .btn-danger").click(function () {
     return false;
 });
 
-
-
-
-
 toastr.options = {
     "closeButton": true,
     "debug": false,

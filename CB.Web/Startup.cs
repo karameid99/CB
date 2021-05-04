@@ -1,6 +1,10 @@
+using CB.Data.Data;
+using CB.Infrastructure.Services.Supervisor;
+using CB.Models.Entities.Auth;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,7 +27,26 @@ namespace CB.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContextPool<CBDbContext>(opts =>
+            {
+                opts.UseSqlServer(Configuration.GetConnectionString("DbConnection"));
+                opts.EnableDetailedErrors();
+                opts.EnableSensitiveDataLogging();
+            });
+            services.AddDefaultIdentity<CBUser>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.SignIn.RequireConfirmedEmail = false;
+            })
+               .AddEntityFrameworkStores<CBDbContext>();
             services.AddControllersWithViews();
+            services.AddScoped<ISupervisorService, SupervisorService>();
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
