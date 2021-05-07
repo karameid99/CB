@@ -37,7 +37,6 @@ namespace CB.Infrastructure.Services.Supervisor
             }
             return _mapper.Map<SupervisorUpdateDto>(data);
         }
-
         public async Task<ResponseDto> GetAll(Pagination pagination, Query query)
         {
             var skipValue = pagination.GetSkipValue();
@@ -85,7 +84,6 @@ namespace CB.Infrastructure.Services.Supervisor
 
             }
         }
-
         public async Task Update(SupervisorUpdateDto input, string userId)
         {
             var user = await _context.Users.FindAsync(input.Id);

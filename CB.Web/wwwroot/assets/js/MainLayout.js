@@ -115,18 +115,16 @@ function ShowMessage(msg) {
 
 function PageLoadActions() {
     $(".ajaxForm").ajaxForm({
-        success: function (jsonObject) {
+        success: function (json) {
             $(".ajaxForm :submit").prop("disabled", false);
-            if (jsonObject != null) {
-                var json = JSON.parse(jsonObject);
+            if (json != null) {
+                console.log(json);
                 if (json.status == 1) {
-
                     var tname = $('.ajaxForm').attr("tname");
                     var fname = $('.ajaxForm').attr("fname");
                     if (fname != null) {
                         eval(fname);
                     }
-
                     $('#kt_datatable').KTDatatable().reload();
                     if (!$("#tblItems").hasClass("autohide")) {
                         $(".ajaxForm").resetForm();

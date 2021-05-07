@@ -10,6 +10,7 @@ namespace CB.Models.Models
     {
         public bool Status { get; set; }
         public string Message { get; set; }
+        public int Close { get; set; }
         public object Data { get; set; }
     }
     public class APIResponseError : APIResponse

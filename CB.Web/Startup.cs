@@ -1,4 +1,7 @@
 using CB.Data.Data;
+using CB.Infrastructure.Middlewares;
+using CB.Infrastructure.Services.LookUp;
+using CB.Infrastructure.Services.Role;
 using CB.Infrastructure.Services.Supervisor;
 using CB.Models.Entities.Auth;
 using Microsoft.AspNetCore.Builder;
@@ -46,24 +49,27 @@ namespace CB.Web
                .AddEntityFrameworkStores<CBDbContext>();
             services.AddControllersWithViews();
             services.AddScoped<ISupervisorService, SupervisorService>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<ILookUpService, LookUpService>();
             services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
+            //else
+            //{
+            //    app.UseExceptionHandler("/Home/Error");
+            //    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            //    app.UseHsts();
+            //}
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseExceptionHandler(opts => opts.UseMiddleware<ExceptionHandlerWeb>());
 
             app.UseRouting();
 

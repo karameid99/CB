@@ -1,7 +1,8 @@
-﻿using CB.Infrastructure.Services.Supervisor;
+﻿using CB.Infrastructure.Services.Role;
 using CB.Models.Constants;
 using CB.Models.DTOs.Helpers;
-using CB.Models.DTOs.Supervisor;
+using CB.Models.DTOs.Role;
+using CB.Models.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,19 +11,19 @@ using System.Threading.Tasks;
 
 namespace CB.Web.Controllers
 {
-    public class SupervisorController : BaseController
+    public class RoleController : BaseController
     {
-        private readonly ISupervisorService _supervisorService;
+        private readonly IRoleService _RoleService;
 
-        public SupervisorController(ISupervisorService supervisorService)
+        public RoleController(IRoleService RoleService)
         {
-            _supervisorService = supervisorService;
+            _RoleService = RoleService;
         }
 
         [HttpPost]
         public async Task<JsonResult> GetAll(Pagination pagination, Query query)
         {
-            var response = await _supervisorService.GetAll(pagination, query);
+            var response = await _RoleService.GetAll(pagination, query);
             return Json(response);
         }
         public IActionResult Index()
@@ -36,34 +37,34 @@ namespace CB.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(SupervisorCreateDto input)
+        public async Task<IActionResult> Create(RoleCreateDto input)
         {
             if (ModelState.IsValid)
             {
-                await _supervisorService.Create(input, "");
+                await _RoleService.Create(input, "");
                 return Ok(Results.AddSuccessResult());
             }
             return View(input);
         }
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int id)
         {
-            return View(await _supervisorService.Get(id));
+            return View(await _RoleService.Get(id));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(SupervisorUpdateDto input)
+        public async Task<IActionResult> Edit(RoleUpdateDto input)
         {
             if (ModelState.IsValid)
             {
-                await _supervisorService.Update(input, "");
+                await _RoleService.Update(input, "");
                 return Ok(Results.EditSuccessResult());
             }
             return View(input);
-        }
+        } 
 
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int id)
         {
-            await _supervisorService.Delete(id, "");
+            await _RoleService.Delete(id, "");
             return Ok(Results.DeleteSuccessResult());
         }
     }

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CB.Models.Models;
+using CB.Models.Resources;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +10,7 @@ namespace CB.Web.Controllers
 {
     public class BaseController : Controller
     {
-        
+
     }
+
 }

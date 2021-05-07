@@ -43,5 +43,6 @@ namespace CB.Data.Data
         public DbSet<Email> Emails { get; set; }
         public DbSet<MillingList> MillingLists { get; set; }
         public DbSet<Notfication> Notfications { get; set; }
+        public DbSet<Role> Role { get; set; }
     }
 }

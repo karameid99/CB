@@ -13,7 +13,7 @@ var KTDatatableAutoColumnHideDemo = function () {
                 type: 'remote',
                 source: {
                     read: {
-                        url: 'Supervisor/GetAll',
+                        url: 'Role/GetAll',
                     },
                 },
                 pageSize: 10,
@@ -39,40 +39,21 @@ var KTDatatableAutoColumnHideDemo = function () {
 
             // columns definition
             columns: [{
-                field: 'fullName',
-                title: 'full Name',
+                field: 'nameAr',
+                title: 'Arabic Name',
                 width: 'auto'
             },
             {
-                field: 'email',
-                title: 'email',
+                field: 'nameEn',
+                title: 'English Name',
                 width: 'auto'
             },
             {
-                field: 'phoneNumber',
-                title: 'Phone Number',
-                width: 'auto'
-            }, {
-                field: 'isActive',
-                title: 'Active',
-                // callback function support for column rendering
-                template: function (row) {
-                    var status = {
-                        "false": { 'title': 'non Active', 'class': ' label-light-danger' },
-                        "true": { 'title': 'Active', 'class': ' label-light-success' },
-                    };
-                    return '<span class="label font-weight-bold label-lg ' + status[row.isActive].class + ' label-inline">' + status[row.isActive].title + '</span>';
-                },
-            }, {
                 field: 'createdAt',
                 title: 'Creation Date',
                 width: 'auto'
             },
-            {
-                field: 'lastLogin',
-                title: 'last Login',
-                width: 'auto'
-            },
+
             {
                 field: 'Actions',
                 title: 'Actions',
@@ -81,7 +62,7 @@ var KTDatatableAutoColumnHideDemo = function () {
                 overflow: 'visible',
                 autoHide: false,
                 template: function (data) {
-                    return '\<a  href ="/supervisor/Edit/' + data.id + '" class="PopUp btn btn-sm btn-clean btn-icon mr-2" title="Update ' + data.name + ' Information">\
+                    return '\<a  href ="/Role/Edit/' + data.id + '" class="PopUp btn btn-sm btn-clean btn-icon mr-2" title="Update ' + data.name + ' Information">\
                             <span class="svg-icon svg-icon-md">\
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">\
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\
@@ -92,7 +73,7 @@ var KTDatatableAutoColumnHideDemo = function () {
                                 </svg>\
                             </span>\
                         </a>\
-                        <a href ="/supervisor/Delete/' + data.id + '" tname="#kt_datatable" class="Confirm btn btn-sm btn-clean btn-icon" title="Delete">\
+                        <a href ="/Role/Delete/' + data.id + '" tname="#kt_datatable" class="Confirm btn btn-sm btn-clean btn-icon" title="Delete">\
                             <span class="svg-icon svg-icon-md">\
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">\
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\
