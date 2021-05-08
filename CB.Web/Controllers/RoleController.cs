@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace CB.Web.Controllers
@@ -41,7 +42,7 @@ namespace CB.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _RoleService.Create(input, "");
+                await _RoleService.Create(input, GetCurrntUserId());
                 return Ok(Results.AddSuccessResult());
             }
             return View(input);
@@ -56,15 +57,15 @@ namespace CB.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _RoleService.Update(input, "");
+                await _RoleService.Update(input, GetCurrntUserId());
                 return Ok(Results.EditSuccessResult());
             }
             return View(input);
-        } 
+        }
 
         public async Task<IActionResult> Delete(int id)
         {
-            await _RoleService.Delete(id, "");
+            await _RoleService.Delete(id, GetCurrntUserId());
             return Ok(Results.DeleteSuccessResult());
         }
     }

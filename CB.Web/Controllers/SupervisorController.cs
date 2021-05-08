@@ -2,6 +2,7 @@
 using CB.Models.Constants;
 using CB.Models.DTOs.Helpers;
 using CB.Models.DTOs.Supervisor;
+using CB.Models.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ namespace CB.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _supervisorService.Create(input, "");
+                await _supervisorService.Create(input, GetCurrntUserId());
                 return Ok(Results.AddSuccessResult());
             }
             return View(input);
@@ -55,7 +56,7 @@ namespace CB.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _supervisorService.Update(input, "");
+                await _supervisorService.Update(input, GetCurrntUserId());
                 return Ok(Results.EditSuccessResult());
             }
             return View(input);
@@ -63,7 +64,7 @@ namespace CB.Web.Controllers
 
         public async Task<IActionResult> Delete(string id)
         {
-            await _supervisorService.Delete(id, "");
+            await _supervisorService.Delete(id, GetCurrntUserId());
             return Ok(Results.DeleteSuccessResult());
         }
     }

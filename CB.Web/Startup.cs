@@ -1,12 +1,15 @@
 using CB.Data.Data;
 using CB.Infrastructure.Middlewares;
+using CB.Infrastructure.Services.Auth;
 using CB.Infrastructure.Services.LookUp;
 using CB.Infrastructure.Services.Role;
 using CB.Infrastructure.Services.Supervisor;
 using CB.Models.Entities.Auth;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -51,7 +54,9 @@ namespace CB.Web
             services.AddScoped<ISupervisorService, SupervisorService>();
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<ILookUpService, LookUpService>();
+            services.AddScoped<IAuthWebService, AuthWebService>();
             services.AddAutoMapper(typeof(Startup));
+            services.PostConfigure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme, opt => { opt.LoginPath = "/Auth/Login"; opt.AccessDeniedPath = "/Auth/AccessDenied"; });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,8 +78,8 @@ namespace CB.Web
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

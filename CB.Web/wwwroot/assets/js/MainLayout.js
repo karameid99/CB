@@ -20,7 +20,8 @@ $(".ajaxForm").ajaxForm({
                 eval(fname);
             }
             if (!$("#tblItems").hasClass("autohide")) {
-                $(".ajaxForm").resetForm();
+                if (json.close == 1)
+                    $(".ajaxForm").resetForm();
                 $("#tblItems tbody tr").remove();
                 $("#tblItems").addClass("hidden").next().show();
             }
@@ -66,8 +67,7 @@ $("#Confirm .btn-danger").click(function () {
     var url = $(this).attr("href");
     $.ajax({
         url: url,
-        success: function (jsonObject) {
-            var json = JSON.parse(jsonObject);
+        success: function (json) {
             if (json.status == 1) {
                 if (tname != null) {
                     $('#kt_datatable').KTDatatable().reload();
@@ -76,7 +76,6 @@ $("#Confirm .btn-danger").click(function () {
                     eval(fname);
                 }
             }
-
             ShowMessage(json.msg);
         }
     });
@@ -127,7 +126,8 @@ function PageLoadActions() {
                     }
                     $('#kt_datatable').KTDatatable().reload();
                     if (!$("#tblItems").hasClass("autohide")) {
-                        $(".ajaxForm").resetForm();
+                        if (json.close == 1)
+                            $(".ajaxForm").resetForm();
                         $("#tblItems tbody tr").remove();
                         $("#tblItems").addClass("hidden").next().show();
                     }

@@ -16,8 +16,4 @@
     <ProjectReference Include="..\CB.Models\CB.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\Auth\" />
-  </ItemGroup>
-
 </Project>

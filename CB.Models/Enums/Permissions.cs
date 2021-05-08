@@ -11,5 +11,6 @@ namespace CB.Models.Enums
         Dashboard = 0,
         Supervisor = 1,
         Role = 2,
+        Home = 3,
     }
 }

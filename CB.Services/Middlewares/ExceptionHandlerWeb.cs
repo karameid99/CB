@@ -37,8 +37,8 @@ namespace CB.Infrastructure.Middlewares
                     break;
 
                 default:
-                    var logger = new ObeLogger(_logOption).GetLogger();
-                    logger.LogException(exception, exception.Message);
+                    //var logger = new ObeLogger(_logOption).GetLogger();
+                    //logger.LogException(exception, exception.Message);
                     response.msg = "e: " + MessageResource.GeneralError;
                     context.Response.StatusCode = (int)HttpStatusCode.OK;
                     break;
