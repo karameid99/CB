@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace CB.Web.Controllers
 {
     [Authorize]
-    [AuthFilter]
+    //[AuthFilter]
     public class BaseController : Controller
     {
         protected string GetCurrntUserId()

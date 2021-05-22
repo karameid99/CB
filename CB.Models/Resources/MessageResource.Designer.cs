@@ -29,7 +29,7 @@ namespace CB.Models.Resources {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        public MessageResource() {
+        internal MessageResource() {
         }
         
         /// <summary>
@@ -88,6 +88,15 @@ namespace CB.Models.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This item was not found in our system.
+        /// </summary>
+        public static string ItemNotFound {
+            get {
+                return ResourceManager.GetString("ItemNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Missing Required Fields.
         /// </summary>
         public static string MissingRequiredFields {
@@ -111,6 +120,15 @@ namespace CB.Models.Resources {
         public static string Succses {
             get {
                 return ResourceManager.GetString("Succses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserName Aready Exsist.
+        /// </summary>
+        public static string UserNameAreadyExsist {
+            get {
+                return ResourceManager.GetString("UserNameAreadyExsist", resourceCulture);
             }
         }
     }

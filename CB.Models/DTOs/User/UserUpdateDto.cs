@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CB.Models.Enums
+namespace CB.Models.DTOs.User
 {
-    public enum Permissions
+    public class UserUpdateDto : UserCreateDto
     {
-        Dashboard = 0,
-        Supervisor = 1,
-        Role = 2,
+        public string Id { get; set; }
     }
 }

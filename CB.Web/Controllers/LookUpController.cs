@@ -20,5 +20,10 @@ namespace CB.Web.Controllers
         {
             return Ok(_lookUpService.GetPermission());
         }
+
+        public async Task<IActionResult> GetRoles()
+        {
+            return Json(await _lookUpService.GetRole());
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace CB.Infrastructure.Middlewares
         }
 
         public async Task Invoke(HttpContext context)
-        {
+        { 
             var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
             var exception = exceptionHandlerPathFeature.Error;
             var response = new WebAPIResponse();

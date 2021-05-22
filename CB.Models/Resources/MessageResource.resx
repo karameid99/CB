@@ -126,6 +126,9 @@
   <data name="GeneralError" xml:space="preserve">
     <value>Sorry! an error occurred, please call technical support.</value>
   </data>
+  <data name="ItemNotFound" xml:space="preserve">
+    <value>This item was not found in our system</value>
+  </data>
   <data name="MissingRequiredFields" xml:space="preserve">
     <value>Missing Required Fields</value>
   </data>
@@ -134,5 +137,8 @@
   </data>
   <data name="Succses" xml:space="preserve">
     <value>Succses</value>
+  </data>
+  <data name="UserNameAreadyExsist" xml:space="preserve">
+    <value>UserName Aready Exsist</value>
   </data>
 </root>

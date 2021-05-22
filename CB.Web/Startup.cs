@@ -1,9 +1,12 @@
 using CB.Data.Data;
 using CB.Infrastructure.Middlewares;
+using CB.Infrastructure.Services.Auction;
 using CB.Infrastructure.Services.Auth;
+using CB.Infrastructure.Services.Client;
 using CB.Infrastructure.Services.LookUp;
 using CB.Infrastructure.Services.Role;
 using CB.Infrastructure.Services.Supervisor;
+using CB.Infrastructure.Services.User;
 using CB.Models.Entities.Auth;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -55,6 +58,9 @@ namespace CB.Web
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<ILookUpService, LookUpService>();
             services.AddScoped<IAuthWebService, AuthWebService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IClientService, ClientService>();
+            services.AddScoped<IAuctionService, AuctionService>();
             services.AddAutoMapper(typeof(Startup));
             services.PostConfigure<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme, opt => { opt.LoginPath = "/Auth/Login"; opt.AccessDeniedPath = "/Auth/AccessDenied"; });
         }

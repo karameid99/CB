@@ -23,6 +23,7 @@ namespace CB.Data.Data
         {
             base.OnModelCreating(builder);
             builder.Entity<Auction>().HasOne(x => x.CarCity).WithMany(x => x.Auctions).OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Auction>().HasOne(x => x.Bayer).WithMany(x => x.Auctions).OnDelete(DeleteBehavior.Restrict);
             builder.Entity<CommentLike>().HasKey(x => new { x.ClientId, x.CommentId });
             builder.Entity<BidLike>().HasKey(x => new { x.ClientId, x.BidId });
             builder.Entity<AuctionWatch>().HasKey(x => new { x.ClientId, x.AuctionId });

@@ -19,6 +19,7 @@ namespace CB.Models.Entities.Client
         public string Bio { get; set; }
         [ForeignKey(nameof(OwnerId))]
         public CBUser Owner { get; set; }
+        public bool IsBidder { get; set; }
 
         #region Notfications
         public bool DailyEmail { get; set; }
@@ -28,14 +29,15 @@ namespace CB.Models.Entities.Client
         public bool PlaySound { get; set; }
         // WatchList Notfication
         public bool WatchBeforeEnd { get; set; }
-        public bool WatchNewBid { get; set; }
+        public bool  WatchNewBid { get; set; }
         public bool WatchNewComments { get; set; }
         public bool WatchAuctionsResults { get; set; }
         //Seller Notifications
         public bool SellerNewCommentsOnEmail { get; set; }
         public bool SellerNewBidsOnEmail { get; set; }
         #endregion
-        public List<Comment> Comment { get; set; }
+        public List<Auction> Auctions { get; set; }
+        public List<Comment> Comments { get; set; }
         public List<Bid> Bids { get; set; }
         public List<AuctionWatch> AuctionWatches { get; set; }
 

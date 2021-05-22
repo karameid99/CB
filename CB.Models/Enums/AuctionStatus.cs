@@ -8,5 +8,10 @@ namespace CB.Models.Enums
 {
     public enum AuctionStatus
     {
+        Pending,
+        ApprovedFromCB,
+        ReciveBids,
+        Sold,
+        ClosedFromCB
     }
 }

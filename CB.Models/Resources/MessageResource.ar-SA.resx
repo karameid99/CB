@@ -126,6 +126,9 @@
   <data name="GeneralError" xml:space="preserve">
     <value>آسف! حدث خطأ ، يرجى الاتصال بالدعم الفني</value>
   </data>
+  <data name="ItemNotFound" xml:space="preserve">
+    <value>هذا العنصر غير متوفر في النظام</value>
+  </data>
   <data name="MissingRequiredFields" xml:space="preserve">
     <value>الحقول المطلوبة مفقودة</value>
   </data>
@@ -134,5 +137,8 @@
   </data>
   <data name="Succses" xml:space="preserve">
     <value>العملية تمت بنجاح</value>
+  </data>
+  <data name="UserNameAreadyExsist" xml:space="preserve">
+    <value>اسم المستخدم موجود مسبقا</value>
   </data>
 </root>

@@ -11,5 +11,8 @@ namespace CB.Infrastructure.Services.LookUp
     public interface ILookUpService
     {
         List<Permissions> GetPermission();
+        Task<List<ListVm>> GetRole();
     }
+
+
 }

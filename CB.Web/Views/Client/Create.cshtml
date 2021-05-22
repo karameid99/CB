@@ -1,6 +1,6 @@
-﻿@model CB.Models.DTOs.Supervisor.SupervisorCreateDto
+﻿@model CB.Models.DTOs.Client.ClientCreateDto
 @{
-    ViewData["Title"] = "Create Supervisor";
+    ViewData["Title"] = "Create Client";
 }
 @{
     Layout = null;
@@ -42,38 +42,19 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label asp-for="Email"></label>
-                <input type="email" asp-for="Email" placeholder="Enter Email" class="form-control form-control-solid" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <label asp-for="UserName"></label>
+                <input asp-for="UserName" placeholder="Enter Email" class="form-control form-control-solid" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label asp-for="RoleId"></label>
-                <select asp-for="RoleId" class="form-control form-control-solid" id="select-role">
-                    <option value="">--- Select Role ---</option>
-                </select>
-                <span asp-validation-for="RoleId" class="text-danger"></span>
+                <label asp-for="Image"></label>
+                <input type="file" asp-for="Image"  class="form-control form-control-solid" />
+                <span asp-validation-for="Image" class="text-danger"></span>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <label></label>
-            <div class="form-group row">
-                <div class="col-9 col-form-label">
-                    <div class="checkbox-inline">
-                        <label class="checkbox checkbox-success">
-                            <input type="checkbox" asp-for="IsActive" />
-                            <span></span>
-                            Active
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="modal-footer">
         <button type="submit" class="btn btn-primary font-weight-bold mr-2">Submit</button>
         <button type="button" data-dismiss="modal" class="btn btn-light-primary font-weight-bold">Cancel</button>
@@ -82,28 +63,6 @@
 
 <script>
     PageLoadActions();  
-</script>
-<script>
-    var KTSelect2 = function () {
-        // Private functions
-        var demos = function () {
-            // basic
-            $('#kt_select2_1').select2({
-                placeholder: "Select a state"
-            });
-        }
-        // Public functions
-        return {
-            init: function () {
-                demos();
-            }
-        };
-    }();
-
-    // Initialization
-    jQuery(document).ready(function () {
-        KTSelect2.init();
-    });
 </script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
